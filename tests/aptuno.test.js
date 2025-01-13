@@ -11,7 +11,7 @@ test.describe('Search Properties Test Suite', () => {
     test('TC_001: search a valid property test', async ({ page }) => {
         await page.screenshot({path: 'screenshots/TC_001_home_page.png', fullPage: true});
         
-        let cityToSearch = 'Soacha';
+        let cityToSearch = 'Bogota';
 
         const citySearchBar = await page.locator('.form-width-icon');
         const searchButton = page.getByRole('button', { name: 'Encontrar mi hogar ideal' });
@@ -20,8 +20,7 @@ test.describe('Search Properties Test Suite', () => {
         await page.getByRole('button', { name: 'Aceptar' }).click();                                        //Accept cookies popup
         
         await citySearchBar.fill(cityToSearch);
-        await page.waitForTimeout(2000);
-        await page.locator('.inputSelectOptions').click();
+        await citySearchBar.click();
         await searchButton.click();
         
         await page.screenshot({path: 'screenshots/TC_001_search_property_page.png', fullPage: true});
