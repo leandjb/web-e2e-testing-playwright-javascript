@@ -58,24 +58,24 @@ test.describe('Search Properties Test Suite', () => {
 
     });
 
-    test.only('TC_003: search a property that no exist test', async ({ page }) => {
+    // test('TC_003: search a property that no exist test', async ({ page }) => {
 
-        let cityToSearch = 'Villa no exist';
+    //     let cityToSearch = 'Villa no exist';
 
-        const citySearchBar = await page.locator('.form-width-icon');
-        const searchButton = page.getByRole('button', { name: 'Encontrar mi hogar ideal' });
+    //     const citySearchBar = await page.locator('.form-width-icon');
+    //     const searchButton = page.getByRole('button', { name: 'Encontrar mi hogar ideal' });
         
         
-        await page.getByRole('button', { name: 'Aceptar' }).click();                                        //Accept cookies popup
+    //     await page.getByRole('button', { name: 'Aceptar' }).click();                                        //Accept cookies popup
         
-        await citySearchBar.fill(cityToSearch);
-        await citySearchBar.click();
-        await searchButton.click();
+    //     await citySearchBar.fill(cityToSearch);
+    //     await citySearchBar.click();
+    //     await searchButton.click();
 
 
-        await page.pause()
+    //     await page.pause()
 
-    });
+    // });
 
 
 
