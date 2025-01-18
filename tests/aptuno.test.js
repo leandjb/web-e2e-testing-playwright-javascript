@@ -31,10 +31,10 @@ test.describe('Search Properties Test Suite', () => {
 
 
         await page1.waitForSelector('#details_section');                                                    //verify for details section structure                    
-        await expect(page1.getByRole('button', { name: 'Compartir' })).toBeVisible();
-        await expect(page1.getByRole('button', { name: 'Compartir' })).toContainText('Compartir');
-        await expect(page1.getByRole('button', { name: 'Guardar' })).toBeVisible();
-        await expect(page1.getByRole('button', { name: 'Guardar' })).toContainText('Guardar');
+        await expect.soft(page1.getByRole('button', { name: 'Compartir' })).toBeVisible();
+        await expect.soft(page1.getByRole('button', { name: 'Compartir' })).toContainText('Compartir');
+        await expect.soft(page1.getByRole('button', { name: 'Guardar' })).toBeVisible();
+        await expect.soft(page1.getByRole('button', { name: 'Guardar' })).toContainText('Guardar');
         await expect(page1.getByRole('heading', { name: 'Descripción del espacio' })).toBeVisible();
         await expect(page1.getByRole('heading', { name: 'Descripción del espacio' })).toContainText('Descripción del espacio');
         
@@ -57,41 +57,36 @@ test.describe('Search Properties Test Suite', () => {
 
     });
 
-    // test('TC_003: search a valid property with filters test', async ({ page }) => {
+    test('TC_003: search a valid property with filters test', async ({ page }) => {
 
         
-    //     let cityToSearch = 'Bogota';
+        let cityToSearch = 'Bogota';
 
-    //     const citySearchBar = await page.locator('.form-width-icon');
-    //     const searchButton = page.getByRole('button', { name: 'Encontrar mi hogar ideal' });
+        const citySearchBar = await page.locator('.form-width-icon');
+        const searchButton = page.getByRole('button', { name: 'Encontrar mi hogar ideal' });
         
         
-    //     await page.getByRole('button', { name: 'Aceptar' }).click();                                        //Accept cookies popup
+        await page.getByRole('button', { name: 'Aceptar' }).click();                                        //Accept cookies popup
         
-    //     await citySearchBar.fill(cityToSearch);
-    //     await citySearchBar.click();
-    //     await searchButton.click();
+        await citySearchBar.fill(cityToSearch);
+        await citySearchBar.click();
+        await searchButton.click();
         
-
-
-    //     const page1Promise = page.waitForEvent('popup');
-    //     await page.locator('picture').first().click();
-    //     const page1 = await page1Promise;
-
-
-    //     await page1.waitForSelector('#details_section');                                                    //verify for details section structure                    
-    //     await expect(page1.getByRole('button', { name: 'Compartir' })).toBeVisible();
-    //     await expect(page1.getByRole('button', { name: 'Compartir' })).toContainText('Compartir');
-    //     await expect(page1.getByRole('button', { name: 'Guardar' })).toBeVisible();
-    //     await expect(page1.getByRole('button', { name: 'Guardar' })).toContainText('Guardar');
-    //     await expect(page1.getByRole('heading', { name: 'Descripción del espacio' })).toBeVisible();
-    //     await expect(page1.getByRole('heading', { name: 'Descripción del espacio' })).toContainText('Descripción del espacio');
+        await page.getByRole('button', { name: ' Más filtros' }).click();                               //Select some filters section
+        await page.getByRole('button', { name: 'Apartamento' }).click();
+        await page.getByRole('button', { name: '2+' }).first().click();
+        await page.getByRole('button', { name: '1+' }).nth(1).click();
+        await page.getByRole('button', { name: '1+' }).nth(2).click();
+        await page.getByRole('button', { name: '4', exact: true }).click();
+        await page.getByRole('button', { name: 'Estudio' }).click();
+        await page.getByRole('button', { name: 'Aplicar filtros' }).click();
         
+        await expect.soft(page.getByRole('button', { name: ' Más filtros' })).toBeVisible();
+        await expect(page.locator('form')).toContainText('5');
         
-    //     await page1.waitForSelector('.EstateDetailsstyled__MainActionsCard-sc-9oojuf-4');                   
-    //     await expect(page1.getByRole('button', { name: 'Agendar una visita' })).toBeVisible();
+        await page.pause()
 
-    // });
+    });
 
 })
 
