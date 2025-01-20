@@ -1,13 +1,13 @@
 const { test, expect } = require('@playwright/test');
 
 test.afterEach(async ({ page }) => {
-    // expect(await page.url()).toBe('https://www.saucedemo.com/inventory.html')
+    expect(await page.url()).toBe('https://www.saucedemo.com/inventory.html')
     await page.screenshot({path: `screenshots/TC_001-StepAfter-${Date.now()}.png`, fullPage: true})
 
 })
 
 test.beforeEach(async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/')
+    await page.goto('/')
     
     expect(await page.url()).toBe('https://www.saucedemo.com/')
     expect(await page.title()).toBe('Swag Labs')

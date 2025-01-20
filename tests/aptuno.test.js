@@ -84,8 +84,6 @@ test.describe('Search Properties Test Suite', () => {
         await expect.soft(page.getByRole('button', { name: ' Más filtros' })).toBeVisible();
         await expect(page.locator('form')).toContainText('5');
         
-        await page.pause()
-
     });
 
 })

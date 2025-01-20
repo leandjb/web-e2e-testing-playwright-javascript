@@ -29,7 +29,7 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    // headless: false,
+    headless: process.env.CI ? true: false,
     trace: 'on',
     video: 'retry-with-video',
     baseURL: 'https://www.saucedemo.com/',
@@ -42,10 +42,10 @@ module.exports = defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
 
     // {
     //   name: 'webkit',
