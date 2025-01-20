@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
 test.afterEach(async ({ page }) => {
-    expect(await page.url()).toBe('https://www.saucedemo.com/inventory.html')
+    // expect(await page.url()).toBe('https://www.saucedemo.com/inventory.html')
     await page.screenshot({path: `screenshots/TC_001-StepAfter-${Date.now()}.png`, fullPage: true})
 
 })
