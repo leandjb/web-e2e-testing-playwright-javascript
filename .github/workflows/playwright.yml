@@ -11,8 +11,8 @@ jobs:
     environment: dev
     env:
       WEB_URL: ${{ secrets.WEB_URL }}
-      WEB_URL: ${{ secrets.USER }}
-      WEB_URL: ${{ secrets.PSWD }}
+      USER: ${{ secrets.USER }}
+      PSWD: ${{ secrets.PSWD }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
