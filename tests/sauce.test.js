@@ -21,8 +21,8 @@ test.beforeEach(async ({ page }) => {
 
 
 test('TC_001: login with a valid user test', async ({ page }) => {
-    await page.locator('[data-test=username]').fill('standard_user')
-    await page.locator('[data-test=password]').fill('secret_sauce') 
+    await page.locator('[data-test=username]').fill(process.env.USER)
+    await page.locator('[data-test=password]').fill(process.env.PSWD) 
     await page.locator('[data-test=login-button]').click()
 
     expect.soft(await page.locator('.product_sort_container')).toBeVisible()
