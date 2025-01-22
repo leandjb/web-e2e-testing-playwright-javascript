@@ -29,11 +29,11 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    headless: process.env.CI ? true: false,
+    headless: process.env.CI ? true : false,
     trace: 'on',
     video: 'retry-with-video',
-    baseURL: 'https://www.saucedemo.com/',
-  },
+    baseURL: process.env.WEB_URL ?? 'https://www.saucedemo.com/',
+    },
 
   /* Configure projects for major browsers */
   projects: [
